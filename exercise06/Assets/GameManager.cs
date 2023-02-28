@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI playerScoreText;
     public TextMeshProUGUI enemyScoreText;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI winText;
     //GameObject tile;
 
     public float levelTimer = 60;
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
         enemyScore = 0;
         playerScoreText.gameObject.SetActive(false);
         enemyScoreText.gameObject.SetActive(false);
+        winText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,11 +49,28 @@ public class GameManager : MonoBehaviour
             }
             
             levelTimer = 60;
+            //playerScore = 999;
             playerScoreText.gameObject.SetActive(true);
             enemyScoreText.gameObject.SetActive(true);
+            winText.gameObject.SetActive(true);
             timerText.gameObject.SetActive(false);
             playerScoreText.text = "Player Score: " + playerScore.ToString();
             enemyScoreText.text = "Enemy Score: " + enemyScore.ToString();
+            if (playerScore > enemyScore){ 
+                //let string Chungus = "true";
+                winText.color = Color.cyan;
+                winText.text = "You Win!";
+            }
+                
+            //winText.text = "Your Victory is"; //+ Chungus;
+                
+            
+            if(playerScore <= enemyScore){
+                //winText.gameObject.GetComponent<Text>().color = Color.magenta;
+                winText.color = Color.magenta;
+                winText.text = "You Lose!";
+                Debug.Log("Bababooey");
+            }
         }
     
 
