@@ -46,12 +46,11 @@ public class EnemyController : MonoBehaviour
         return finalPosition;
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Tile")) {
-            var tileRenderer = other.gameObject.GetComponent<Renderer>();
-            tileRenderer.material.SetColor("_Color", Color.magenta);
-            //GameManager.enemyScore += 1;
-        }
-    }
+    //private void OnTriggerEnter(Collider other) {
+        //if (other.gameObject.CompareTag("Tile")) {
+            //var tileRenderer = other.gameObject.GetComponent<Renderer>();
+            //tileRenderer.material.SetColor("_Color", Color.magenta);
+        //}
+    //}
 
 }

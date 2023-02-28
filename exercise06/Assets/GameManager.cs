@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static float enemyScore;
     public TextMeshProUGUI playerScoreText;
     public TextMeshProUGUI enemyScoreText;
+    public TextMeshProUGUI timerText;
     //GameObject tile;
 
     public float levelTimer = 60;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         levelTimer = levelTimer - Time.deltaTime;
+        timerText.text = levelTimer.ToString();
         if (levelTimer <= 0)
         {
             foreach (GameObject tile in GameObject.FindGameObjectsWithTag("Tile"))
@@ -40,12 +42,15 @@ public class GameManager : MonoBehaviour
                     enemyScore++;
                 }
             }
+            
+            levelTimer = 60;
             playerScoreText.gameObject.SetActive(true);
             enemyScoreText.gameObject.SetActive(true);
+            timerText.gameObject.SetActive(false);
             playerScoreText.text = "Player Score: " + playerScore.ToString();
             enemyScoreText.text = "Enemy Score: " + enemyScore.ToString();
         }
-
+    
 
     }
 }
