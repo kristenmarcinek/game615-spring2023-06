@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ada184b4987a25348bcfde1c6891f6be
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Crazy Ink Splats
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 16e01692311f97747b537dae257071aa, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

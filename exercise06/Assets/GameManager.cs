@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     //GameObject tile;
 
     public float levelTimer = 60;
+    public float levelTimerAlt;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         levelTimer = levelTimer - Time.deltaTime;
-        timerText.text = levelTimer.ToString();
+        levelTimerAlt = Mathf.Round(levelTimer);
+        timerText.text = levelTimerAlt.ToString();
         if (levelTimer <= 0)
         {
             foreach (GameObject tile in GameObject.FindGameObjectsWithTag("Tile"))
