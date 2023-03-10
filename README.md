@@ -2,7 +2,7 @@
 
 Kristen & Radha
 
-Play it here: https://marcinek.tech/game615-spring2023-06/play
+(Play it here: )[https://marcinek.tech/game615-spring2023-06/play] 
 
 
 ------------------------------------------------
