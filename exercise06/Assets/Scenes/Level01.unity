@@ -17456,6 +17456,7 @@ MonoBehaviour:
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 3.5
   respawnPoint: {x: 0, y: 0, z: 0}
+  respawnParticles: {fileID: 1337497725}
 --- !u!54 &1373489183
 Rigidbody:
   m_ObjectHideFlags: 0

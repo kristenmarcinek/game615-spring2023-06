@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 jump;
     public float jumpForce = 2.0f;
     public Vector3 respawnPoint;
+    public GameObject respawnParticles;
+    private bool isRespawning = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         rb = GetComponent<Rigidbody>();
         respawnPoint = new Vector3(9.36f, 13.8f, 8.18f);
+        respawnParticles.SetActive(false);
     }
 
     void OnCollisionStay()
@@ -46,10 +49,26 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Boundary"))
         {
+            isRespawning = true;
             Debug.Log("HAHA YOU FELL");
             gameObject.transform.position = respawnPoint;
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+        if (other.gameObject.CompareTag("Tile"))
+        {
+            if (isRespawning)
+            {
+                isRespawning = false;
+                Debug.Log("Respawned");
+                StartCoroutine(RespawnParticleSwitch());
+            }
+        }
     }
 
+    private IEnumerator RespawnParticleSwitch()
+    {
+        respawnParticles.SetActive(true);
+        yield return new WaitForSeconds(2);
+        respawnParticles.SetActive(false);
+    }
 }
