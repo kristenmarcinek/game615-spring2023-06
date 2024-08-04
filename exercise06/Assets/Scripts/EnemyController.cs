@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
 {
     NavMeshAgent nma;
     float newPositionTimer = 0;
+    private int minRange = 5;
+    private int maxRange = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +27,12 @@ public class EnemyController : MonoBehaviour
         {
             newPositionTimer = Random.Range(1, 15);
             // Compute a random position and assign it to the NavMeshAgent.
-            Vector3 randomPosition = RandomNavmeshLocation(Random.Range(5, 10));
+            Vector3 randomPosition = RandomNavmeshLocation(Random.Range(minRange, maxRange)); // this changes jaguar pace
             nma.SetDestination(randomPosition);
         }
     }
 
-    // This function will find a random position located on the NavMesh. I wouldn't
-    // worry about understanding it at this point. But you can use it to compute
-    // random positions on a NavMesh.
+    // This function will find a random position located on the NavMesh
     public Vector3 RandomNavmeshLocation(float radius)
     {
         Vector3 randomDirection = Random.insideUnitSphere * radius;
@@ -45,12 +45,4 @@ public class EnemyController : MonoBehaviour
         }
         return finalPosition;
     }
-
-    //private void OnTriggerEnter(Collider other) {
-        //if (other.gameObject.CompareTag("Tile")) {
-            //var tileRenderer = other.gameObject.GetComponent<Renderer>();
-            //tileRenderer.material.SetColor("_Color", Color.magenta);
-        //}
-    //}
-
 }

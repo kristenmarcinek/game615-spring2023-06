@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 50;
-    public float rotateSpeed = 25;
+    public float rotateSpeed = 35;
     public Rigidbody rb;
     public bool isGrounded;
     public Vector3 jump;
