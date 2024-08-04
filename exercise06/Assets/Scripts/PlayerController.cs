@@ -10,15 +10,18 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     public Vector3 jump;
     public float jumpForce = 2.0f;
+    public Vector3 respawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         rb = GetComponent<Rigidbody>();
+        respawnPoint = new Vector3(9.36f, 13.8f, 8.18f);
     }
 
-    void OnCollisionStay(){
+    void OnCollisionStay()
+    {
         isGrounded = true;
     }
 
@@ -36,6 +39,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Boundary"))
+        {
+            Debug.Log("HAHA YOU FELL");
+            gameObject.transform.position = respawnPoint;
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
