@@ -7,6 +7,8 @@ public class TileScript : MonoBehaviour
     // bool isColored = false;
     // bool PlayerTile = false;
     // bool EnemyTile = false;
+    Color PlayerTileColor = Color.green;
+    Color EnemyTileColor = new Color(254, 240, 33);
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +25,14 @@ public class TileScript : MonoBehaviour
         Debug.Log($"OnTriggerEnter called. other's tag was {other.tag}.");
         if (other.gameObject.CompareTag("Player")) {
             var tileRenderer = gameObject.GetComponent<Renderer>();
-            tileRenderer.material.SetColor("_Color", Color.cyan);
+            tileRenderer.material.SetColor("_Color", PlayerTileColor);
             // PlayerTile = true;
             // EnemyTile = false;
         }
         
         if (other.gameObject.CompareTag("Enemy")) {
             var tileRenderer = gameObject.GetComponent<Renderer>();
-            tileRenderer.material.SetColor("_Color", Color.magenta);
+            tileRenderer.material.SetColor("_Color", EnemyTileColor);
             // PlayerTile = false;
             // EnemyTile = true;
         }
